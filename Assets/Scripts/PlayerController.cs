@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 	void Update ()
 	{
 		UpdateMovement();
+		UpdateJump();
 		UpdateFacing();
 		UpdateCrouch();
 		UpdateAnimator();
@@ -58,6 +59,32 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	// JUMP //
+
+	public float jumpForce;
+
+	void UpdateJump ()
+	{
+		if (Input.GetButtonDown("Jump") && grounded)
+		{
+			rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+		}
+	}
+
+	// GROUNDED //
+
+	public bool grounded;
+
+	void OnCollisionEnter2D (Collision2D collision)
+	{
+		if (collision.gameObject.layer == 8 && !grounded) grounded = true;
+	}
+
+	void OnCollisionExit2D (Collision2D collision)
+	{
+		if (collision.gameObject.layer == 8 && grounded) grounded = false;
+	}
+
 	// CROUCH //
 
 	bool crouching;
@@ -88,6 +115,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		anim.SetBool("Moving", horizontal != 0);
 		anim.SetBool("Crouching", crouching);
+		anim.SetBool("Grounded", grounded);
 		sprite.flipX = !facingRight;
 	}
 }
