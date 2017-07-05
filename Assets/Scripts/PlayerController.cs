@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	void Update ()
 	{
 		UpdateMovement();
+		UpdateFacing();
 		UpdateAnimator();
 	}
 
@@ -41,12 +42,24 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce(force * speed);
 	}
 
+	// FACING //
+
+	bool facingRight;
+
+	void UpdateFacing ()
+	{
+		if (!Input.GetButton("LockOn"))
+		{
+			if (horizontal > 0.01) facingRight = true;
+			if (horizontal < -0.01) facingRight = false;
+		}
+	}
+
 	// ANIMATOR //
 
 	void UpdateAnimator ()
 	{
 		anim.SetBool("Moving", horizontal != 0);
-		if (horizontal > 0.01) spriteRenderer.flipX = false;
-		if (horizontal < -0.01) spriteRenderer.flipX = true;
+		spriteRenderer.flipX = !facingRight;
 	}
 }
