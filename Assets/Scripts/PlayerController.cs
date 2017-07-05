@@ -8,19 +8,22 @@ public class PlayerController : MonoBehaviour {
 
 	Rigidbody2D rb;
 	Animator anim;
-	SpriteRenderer spriteRenderer;
+	CapsuleCollider2D col;
+	SpriteRenderer sprite;
 
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
-		spriteRenderer = GetComponent<SpriteRenderer>();
+		sprite = GetComponent<SpriteRenderer>();
+		col = GetComponent<CapsuleCollider2D>();
 	}
 
 	void Update ()
 	{
 		UpdateMovement();
 		UpdateFacing();
+		UpdateCrouch();
 		UpdateAnimator();
 	}
 
@@ -55,11 +58,36 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	// CROUCH //
+
+	bool crouching;
+
+	void UpdateCrouch ()
+	{
+		crouching = Input.GetButton("Crouch");
+		UpdateCrouchCollider();
+	}
+
+	void UpdateCrouchCollider ()
+	{
+		if (crouching)
+		{
+			col.offset = new Vector2(0, -0.25f);
+			col.size = new Vector2(0.375f, 0.5f);
+		}
+		else
+		{
+			col.offset = new Vector2(0, 0);
+			col.size = new Vector2(0.375f, 1);
+		}
+	}
+
 	// ANIMATOR //
 
 	void UpdateAnimator ()
 	{
 		anim.SetBool("Moving", horizontal != 0);
-		spriteRenderer.flipX = !facingRight;
+		anim.SetBool("Crouching", crouching);
+		sprite.flipX = !facingRight;
 	}
 }
