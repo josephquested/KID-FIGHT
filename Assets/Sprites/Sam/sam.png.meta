@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7bbd184597012b54a9f19220cd818374
-timeCreated: 1499221617
+timeCreated: 1499828561
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: sam_1
     21300004: sam_2
     21300006: sam_3
+    21300008: sam_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -117,6 +118,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sam_4
+      rect:
+        serializedVersion: 2
+        x: 64
         y: 0
         width: 16
         height: 16
