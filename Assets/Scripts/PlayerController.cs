@@ -72,16 +72,31 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	// FIRE //
+	// WEAPON //
 
 	public Weapon weapon;
 
+	bool aiming;
+	bool firing;
+
 	void UpdateFire ()
 	{
-		if (Input.GetButtonUp("Fire"))
+		aiming = Input.GetButton("Fire");
+		if (Input.GetButtonUp("Fire") && !firing)
 		{
-			weapon.ReceiveFire();
+			Fire();
 		}
+	}
+
+	void Fire ()
+	{
+		firing = true;
+		weapon.ReceiveFire();
+	}
+
+	void StopFire ()
+	{
+		firing = false;
 	}
 
 	// GROUNDED //
@@ -129,6 +144,8 @@ public class PlayerController : MonoBehaviour {
 		anim.SetBool("Moving", horizontal != 0);
 		anim.SetBool("Crouching", crouching);
 		anim.SetBool("Grounded", grounded);
+		anim.SetBool("Aiming", aiming);
+		anim.SetBool("Firing", firing);
 		sprite.flipX = !facingRight;
 	}
 }

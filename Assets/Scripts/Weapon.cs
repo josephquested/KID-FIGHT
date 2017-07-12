@@ -20,24 +20,31 @@ public class Weapon : MonoBehaviour {
 
 	// PROJECTILE SPAWN //
 
-	public Transform projSpawn;
+	public Transform projectileSpawn;
 	public Vector2 spawnRightPos;
 	public Vector2 spawnLeftPos;
 
 	void UpdateProjectileSpawn ()
 	{
-		if (player.facingRight) projSpawn.localPosition = spawnRightPos;
-		else { projSpawn.localPosition = spawnLeftPos; }
+		if (player.facingRight) projectileSpawn.localPosition = spawnRightPos;
+		else { projectileSpawn.localPosition = spawnLeftPos; }
 	}
 
 	// FIRE //
 
-	public GameObject projPrefab;
+	public GameObject projectilePrefab;
+	public float projectileSpeed;
 
 	public void ReceiveFire ()
 	{
-		GameObject proj = Instantiate(projPrefab, projSpawn.position, projSpawn.rotation);
-		proj.GetComponent<SpriteRenderer>().flipX = !player.facingRight;
-		// proj.GetComponent<Rigidbody2D>().AddForce(GetForceForProj());
+		GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
+		projectile.GetComponent<SpriteRenderer>().flipX = !player.facingRight;
+		projectile.GetComponent<Rigidbody2D>().AddForce(ProjectileForce() * projectileSpeed);
+	}
+
+	Vector2 ProjectileForce ()
+	{
+		if (player.facingRight) return Vector2.right;
+		else return Vector2.left;
 	}
 }
