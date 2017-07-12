@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 	void Update ()
 	{
 		UpdateMovement();
+		UpdateFire();
 		UpdateJump();
 		UpdateFacing();
 		UpdateCrouch();
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 
 	// FACING //
 
-	bool facingRight;
+	public bool facingRight;
 
 	void UpdateFacing ()
 	{
@@ -68,6 +69,18 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown("Jump") && grounded)
 		{
 			rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+		}
+	}
+
+	// FIRE //
+
+	public Weapon weapon;
+
+	void UpdateFire ()
+	{
+		if (Input.GetButtonUp("Fire"))
+		{
+			weapon.ReceiveFire();
 		}
 	}
 
