@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ffe976a5aa718f541af880b15342e9db
-timeCreated: 1499943139
+timeCreated: 1499946286
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -87,8 +87,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -98,10 +98,10 @@ TextureImporter:
       name: smoke_1
       rect:
         serializedVersion: 2
-        x: 2
+        x: 7
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,10 +111,10 @@ TextureImporter:
       name: smoke_2
       rect:
         serializedVersion: 2
-        x: 4
+        x: 14
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,10 +124,10 @@ TextureImporter:
       name: smoke_3
       rect:
         serializedVersion: 2
-        x: 6
+        x: 21
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +137,10 @@ TextureImporter:
       name: smoke_4
       rect:
         serializedVersion: 2
-        x: 8
+        x: 28
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: smoke_5
       rect:
         serializedVersion: 2
-        x: 10
+        x: 35
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: smoke_6
       rect:
         serializedVersion: 2
-        x: 12
+        x: 42
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: smoke_7
       rect:
         serializedVersion: 2
-        x: 14
+        x: 49
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: smoke_8
       rect:
         serializedVersion: 2
-        x: 16
+        x: 56
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: smoke_9
       rect:
         serializedVersion: 2
-        x: 18
+        x: 63
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: smoke_10
       rect:
         serializedVersion: 2
-        x: 20
+        x: 70
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: smoke_11
       rect:
         serializedVersion: 2
-        x: 22
+        x: 77
         y: 0
-        width: 1
-        height: 1
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
