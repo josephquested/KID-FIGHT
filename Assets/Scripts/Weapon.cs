@@ -21,13 +21,19 @@ public class Weapon : MonoBehaviour {
 	// PROJECTILE SPAWN //
 
 	public Transform projectileSpawn;
-	public Vector2 spawnRightPos;
-	public Vector2 spawnLeftPos;
+
+	public float spawnRightX;
+	public float spawnLeftX;
+	public float spawnStandY;
+	public float spawnCrouchY;
 
 	void UpdateProjectileSpawn ()
 	{
-		if (player.facingRight) projectileSpawn.localPosition = spawnRightPos;
-		else { projectileSpawn.localPosition = spawnLeftPos; }
+		float xPos = spawnRightX;
+		float yPos = spawnStandY;
+		if (!player.facingRight) xPos = spawnLeftX;
+		if (player.crouching) yPos = spawnCrouchY;
+		projectileSpawn.localPosition = new Vector2(xPos, yPos);
 	}
 
 	// FIRE //

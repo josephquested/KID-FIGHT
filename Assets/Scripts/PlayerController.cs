@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Update ()
 	{
+		UpdateSpeed();
 		UpdateMovement();
 		UpdateFire();
 		UpdateJump();
@@ -44,7 +45,18 @@ public class PlayerController : MonoBehaviour {
 	void Move ()
 	{
 		Vector2 force = new Vector2(horizontal, 0);
-		rb.AddForce(force * speed);
+		rb.AddForce(force * _speed);
+	}
+
+	// SPEED //
+
+	float _speed;
+
+	void UpdateSpeed ()
+	{
+		_speed = speed;
+		if (crouching) _speed *= 0.75f;
+		if (firing) _speed = 0;
 	}
 
 	// FACING //
@@ -113,7 +125,7 @@ public class PlayerController : MonoBehaviour {
 
 	// CROUCH //
 
-	bool crouching;
+	public bool crouching;
 
 	void UpdateCrouch ()
 	{
