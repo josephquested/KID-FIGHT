@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour {
 
 	void UpdateFacing ()
 	{
-		// if (!Input.GetButton("LockOn"))
 		if (!aiming && !firing)
 		{
 			if (horizontal > 0.01) facingRight = true;
@@ -122,7 +121,7 @@ public class PlayerController : MonoBehaviour {
 
 	public bool grounded;
 
-	void OnCollisionEnter2D (Collision2D collision)
+	void OnCollisionStay2D (Collision2D collision)
 	{
 		if (collision.gameObject.layer == 8 && !grounded) grounded = true;
 	}

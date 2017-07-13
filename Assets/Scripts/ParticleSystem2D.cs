@@ -6,17 +6,30 @@ public class ParticleSystem2D : MonoBehaviour {
 
 	// SYSTEM //
 
+	void Start ()
+	{
+		if (singlePop)
+		{
+			Pop();
+		}
+	}
+
 	void Update ()
 	{
-		// if (canPop) StartCoroutine(PopRoutine());
-		Pop();
+		if (canPop && !singlePop)
+		{
+			Pop();
+		}
 	}
 
 	// PARTICLES //
 
 	public GameObject prefab;
+	public Sprite[] sprites;
 
 	public float popDelay;
+
+	public bool singlePop;
 
 	public int minParticles;
 	public int maxParticles;
@@ -57,6 +70,7 @@ public class ParticleSystem2D : MonoBehaviour {
 		GameObject _prefab = Instantiate(prefab, transform.position, transform.rotation);
 		_prefab.transform.Rotate(0, 0, RandomRotation());
 		_prefab.GetComponent<Rigidbody2D>().AddForce(force);
+		if (sprites.Length > 0) RandomiseSprite(_prefab);
 	}
 
 	float RandomRotation ()
@@ -65,4 +79,8 @@ public class ParticleSystem2D : MonoBehaviour {
 		return rotations[Random.Range(0, 4)];
 	}
 
+	void RandomiseSprite (GameObject _prefab)
+	{
+		_prefab.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
+	}
 }
