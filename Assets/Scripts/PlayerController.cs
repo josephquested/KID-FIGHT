@@ -149,6 +149,9 @@ public class PlayerController : MonoBehaviour {
 
 	// ANIMATOR //
 
+	public Animator armAnim;
+	public SpriteRenderer armSprite;
+
 	void UpdateAnimator ()
 	{
 		anim.SetBool("Moving", horizontal != 0);
@@ -157,5 +160,16 @@ public class PlayerController : MonoBehaviour {
 		anim.SetBool("Aiming", aiming);
 		anim.SetBool("Firing", firing);
 		sprite.flipX = !facingRight;
+		UpdateArmAnimator();
+	}
+
+	void UpdateArmAnimator ()
+	{
+		armAnim.SetBool("Moving", horizontal != 0);
+		armAnim.SetBool("Crouching", crouching);
+		armAnim.SetBool("Grounded", grounded);
+		armAnim.SetBool("Aiming", aiming);
+		armAnim.SetBool("Firing", firing);
+		armSprite.flipX = !facingRight;
 	}
 }
