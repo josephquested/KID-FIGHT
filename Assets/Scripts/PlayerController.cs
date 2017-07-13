@@ -75,27 +75,25 @@ public class PlayerController : MonoBehaviour {
 	// WEAPON //
 
 	public Weapon weapon;
+	public float fireDuration;
 
 	bool aiming;
 	bool firing;
 
 	void UpdateFire ()
 	{
-		aiming = Input.GetButton("Fire");
-		if (Input.GetButtonUp("Fire") && !firing)
+		if (!firing)
 		{
-			Fire();
+			if (Input.GetButtonUp("Fire")) StartCoroutine(FireRoutine());
+			aiming = Input.GetButton("Fire");
 		}
 	}
 
-	void Fire ()
+	IEnumerator FireRoutine ()
 	{
 		firing = true;
 		weapon.ReceiveFire();
-	}
-
-	void StopFire ()
-	{
+		yield return new WaitForSeconds(fireDuration);
 		firing = false;
 	}
 
