@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour {
 
 	void UpdateFacing ()
 	{
-		if (!Input.GetButton("LockOn"))
+		// if (!Input.GetButton("LockOn"))
+		if (!aiming && !firing)
 		{
 			if (horizontal > 0.01) facingRight = true;
 			if (horizontal < -0.01) facingRight = false;
