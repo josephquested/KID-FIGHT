@@ -48,15 +48,23 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce(force * _speed);
 	}
 
-	// SPEED //
+	// SPEED & FORCE //
 
 	float _speed;
+	float _jumpForce;
 
 	void UpdateSpeed ()
 	{
 		_speed = speed;
-		if (crouching) _speed *= 0.75f;
+		_jumpForce = jumpForce;
+
 		if (firing) _speed = 0;
+
+		if (crouching)
+		{
+			_speed *= 0.75f;
+			_jumpForce *= 0.75f;
+		}
 	}
 
 	// FACING //
@@ -80,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (Input.GetButtonDown("Jump") && grounded)
 		{
-			rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+			rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
 		}
 	}
 
@@ -138,12 +146,12 @@ public class PlayerController : MonoBehaviour {
 		if (crouching)
 		{
 			col.offset = new Vector2(0, -0.25f);
-			col.size = new Vector2(0.375f, 0.5f);
+			col.size = new Vector2(0.37f, 0.5f);
 		}
 		else
 		{
 			col.offset = new Vector2(0, 0);
-			col.size = new Vector2(0.375f, 1);
+			col.size = new Vector2(0.37f, 1);
 		}
 	}
 
