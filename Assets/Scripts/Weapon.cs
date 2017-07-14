@@ -72,13 +72,13 @@ public class Weapon : MonoBehaviour {
 	{
 		GameObject casing = Instantiate(casingPrefab, casingSpawn.position, casingSpawn.rotation);
 
-		float forceX = Random.Range(-5, 0);
+		float forceX = Random.Range(-4, 0);
 		casingSpawn.localPosition = spawnRightPosition;
 
 		if (!player.facingRight)
 		{
 			casingSpawn.localPosition = spawnLeftPosition;
-			forceX = Random.Range(5, 0);
+			forceX = Random.Range(4, 0);
 		}
 
 		Vector2 force = new Vector2(forceX, Random.Range(2, 5));
