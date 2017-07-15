@@ -70,8 +70,6 @@ public class Weapon : MonoBehaviour {
 
 	void EjectCasing ()
 	{
-		GameObject casing = Instantiate(casingPrefab, casingSpawn.position, casingSpawn.rotation);
-
 		float forceX = Random.Range(-4, 0);
 		casingSpawn.localPosition = spawnRightPosition;
 
@@ -81,6 +79,7 @@ public class Weapon : MonoBehaviour {
 			forceX = Random.Range(4, 0);
 		}
 
+		GameObject casing = Instantiate(casingPrefab, casingSpawn.position, casingSpawn.rotation);
 		Vector2 force = new Vector2(forceX, Random.Range(2, 5));
 		casing.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
 		casing.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(100, 900);
